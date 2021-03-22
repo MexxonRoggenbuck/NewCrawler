@@ -9,7 +9,8 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         try {
             createFolderForCurrentWeek();
-            IndeedCrawler indeedCrawler = new IndeedCrawler();
+            // IndeedCrawler indeedCrawler = new IndeedCrawler();
+            StepstoneCrawler stepstoneCrawler = new StepstoneCrawler();
             System.exit(0);
 
         } catch (Exception e) {
@@ -20,8 +21,10 @@ public class Main {
     public static void createFolderForCurrentWeek() {
         Calendar calendar = Calendar.getInstance();
         try {
-            Path path = Paths.get("C:\\Users\\Administrator\\mexxon Consulting GmbH & Co. KG\\Technical Consulting -" +
+/*            Path path = Paths.get("C:\\Users\\Administrator\\mexxon Consulting GmbH & Co. KG\\Technical Consulting -" +
                     " projektradar - Crawling Data\\"+ calendar.get(Calendar.YEAR) + "\\"
+                    + calendar.get(Calendar.WEEK_OF_YEAR)+". Week " + calendar.get(Calendar.YEAR));*/
+            Path path = Paths.get("C:\\Users\\n.roggenbuck\\Mexxon\\Crawling_data"+ calendar.get(Calendar.YEAR) + "\\"
                     + calendar.get(Calendar.WEEK_OF_YEAR)+". Week " + calendar.get(Calendar.YEAR));
             Files.createDirectories(path);
         } catch (IOException e) {

@@ -45,7 +45,8 @@ public class IndeedCrawler {
     }
 
     public IndeedCrawler() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Selenium\\chromedriver.exe");
+        // System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Selenium\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\n.roggenbuck\\Selenium\\chromedriver.exe");
         driver = new ChromeDriver();
         createCSVForIndeedProjects();
         getProjectLinks();
@@ -56,9 +57,11 @@ public class IndeedCrawler {
         DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
         currentDateAsString = dateFormat.format(currentDate);
         Calendar calendar = Calendar.getInstance();
-        Path path = Paths.get("C:\\Users\\Administrator\\mexxon Consulting GmbH & Co. KG\\Technical Consulting -" +
-                " projektradar - Crawling Data\\"+ calendar.get(Calendar.YEAR) + "\\"
+        Path path = Paths.get("C:\\Users\\n.roggenbuck\\Mexxon\\Crawling_data\\"+ calendar.get(Calendar.YEAR) + "\\"
                 + calendar.get(Calendar.WEEK_OF_YEAR)+". Week " + calendar.get(Calendar.YEAR));
+       /* Path path = Paths.get("C:\\Users\\Administrator\\mexxon Consulting GmbH & Co. KG\\Technical Consulting -" +
+                " projektradar - Crawling Data\\"+ calendar.get(Calendar.YEAR) + "\\"
+                + calendar.get(Calendar.WEEK_OF_YEAR)+". Week " + calendar.get(Calendar.YEAR));*/
         file = new File(path.toString(), currentDateAsString+"_Indeed_All_Jobs.xlsx");
         try {
             if(file.createNewFile() == true) {
